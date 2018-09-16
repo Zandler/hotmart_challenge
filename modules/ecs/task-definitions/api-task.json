@@ -1,0 +1,34 @@
+[
+    {
+      "name": "${app-prd}",
+      "image": "${image}",
+      "portMappings": [
+        {
+          "containerPort": ${container_port},
+          "hostPort": ${container_port}
+        }
+      ],
+      "cpu": ${ecs_cpu_desired},
+      "memory": ${ecs_ram_desired},
+      "networkMode": "awsvpc",
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "${log_group}",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "${app-prd}"
+        }
+      },
+      "environment": [
+        {
+          "name": "FOO",
+          "value": "BAR"
+        },
+        {
+          "name" : "PORT",
+          "value": "${container_port}"
+        }
+      ]
+    }
+  ]

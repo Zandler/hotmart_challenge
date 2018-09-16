@@ -1,0 +1,12 @@
+{
+    
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "codepipeline.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole"
+      }
+    ]
+  }
